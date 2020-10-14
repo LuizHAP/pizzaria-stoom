@@ -10,18 +10,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1 className={styles.title}>
-        PizzaRia, a sua <span>pizza perfeita</span> e com um sorriso 😁
+        <span>PizzaRia</span>, a sua pizza perfeita e com um{" "}
+        <span>sorriso</span> 😁
       </h1>
 
       <div className={styles.grid}>
-        <div className={styles.card}>
-          <Link href="/pizza/pasta">
-            <h3>Criar sua pizza</h3>
-          </Link>
-        </div>
+        <Link href="/pizza/pasta">
+          <button className={styles.button}>Criar sua pizza</button>
+        </Link>
       </div>
-
-      <footer className={styles.footer}>Powered by Luiz</footer>
     </div>
   );
 }

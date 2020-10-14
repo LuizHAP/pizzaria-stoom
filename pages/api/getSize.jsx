@@ -9,7 +9,7 @@ const sizes = [
   {
     name: "Pizza Gigante",
     imagem:
-      "https://3.bp.blogspot.com/-INqgGxPy_wo/TbWZw4kIEQI/AAAAAAAAAE8/He22gRAdaHQ/s1600/9PEDACOS.jpg",
+      "https://img.stpu.com.br/?img=https://s3.amazonaws.com/pu-mgr/default/a0R0f000010LYhBEAW/5bcf9c6ce4b087cc76e6a815.jpg&w=710&h=462",
     description: "Pizza de tamanho gigante com 9 fatias.",
   },
   {

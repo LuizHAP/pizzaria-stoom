@@ -1,28 +1,35 @@
-import Link from "next/link";
-import Head from "next/head";
+import { useCallback } from "react";
+
 import { useRouter } from "next/router";
+import Head from "next/head";
+
 import axios from "axios";
 
-import styles from "../../styles/Filling.module.css";
+import { usePizza } from "../../hooks/pizza";
 
-import { useEffect } from "react";
+import styles from "../../styles/Filling.module.css";
 
 const Filling = (props) => {
   const router = useRouter();
 
-  function handleSelectFilling() {
-    router.push("/pizza/final");
-  }
+  const { setFilling } = usePizza();
 
+  const handleSelectFilling = useCallback(
+    (fillingName) => {
+      setFilling(fillingName);
+      router.push("/pizza/final");
+    },
+    [router.push, setFilling]
+  );
   return (
     <div className={styles.container}>
       <Head>
-        <title>PizzaRia :) - Escolha o recheio</title>
+        <title>PizzaRia :)</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Escolha o recheio 😁</h1>
+        <h1 className={styles.title}>Escolha o <span>recheio</span> 😁</h1>
         <div className={styles.cardsContainer}>
           {props.filling.map((item, key) => (
             <div
@@ -33,14 +40,12 @@ const Filling = (props) => {
               }}
             >
               <h2>{item.name}</h2>
-              <h3>{item.description}</h3>
+              <p>{item.description}</p>
               <img src={item.imagem} />
             </div>
           ))}
         </div>
       </main>
-
-      <footer className={styles.footer}>Powered by Luiz</footer>
     </div>
   );
 };

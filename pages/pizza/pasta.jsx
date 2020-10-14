@@ -25,10 +25,10 @@ const Pasta = (props) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>PizzaRia :) - Escolha sua massa</title>
+        <title>PizzaRia :)</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className={styles.title}>Escolha sua massa 😁</h1>
+      <h1 className={styles.title}>Escolha sua <span>massa</span> 😁</h1>
       <div className={styles.cardsContainer}>
         {props.pasta.map((item, key) => (
           <div
@@ -39,13 +39,11 @@ const Pasta = (props) => {
             }}
           >
             <h2>{item.name}</h2>
-            <h3>{item.description}</h3>
+            <p>{item.description}</p>
             <img src={item.imagem} />
           </div>
         ))}
       </div>
-
-      <footer className={styles.footer}>Powered by Luiz</footer>
     </div>
   );
 };

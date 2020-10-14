@@ -1,28 +1,36 @@
-import Link from "next/link";
-import Head from "next/head";
+import { useCallback } from "react";
+
 import { useRouter } from "next/router";
+import Head from "next/head";
+
 import axios from "axios";
 
-import styles from "../../styles/Size.module.css";
+import { usePizza } from "../../hooks/pizza";
 
-import { useEffect } from "react";
+import styles from "../../styles/Size.module.css";
 
 const Size = (props) => {
   const router = useRouter();
 
-  function handleSelectSize() {
-    router.push("/pizza/filling");
-  }
+  const { setSize } = usePizza();
+
+  const handleSelectSize = useCallback(
+    (sizeName) => {
+      setSize(sizeName);
+      router.push("/pizza/filling");
+    },
+    [router.push, setSize]
+  );
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>PizzaRia :) - Escolha o tamanho</title>
+        <title>PizzaRia :)</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Escolha o tamanho 😁</h1>
+        <h1 className={styles.title}>Escolha o <span>tamanho</span> 😁</h1>
         <div className={styles.cardsContainer}>
           {props.size.map((item, key) => (
             <div
@@ -39,8 +47,6 @@ const Size = (props) => {
           ))}
         </div>
       </main>
-
-      <footer className={styles.footer}>Powered by Luiz</footer>
     </div>
   );
 };
