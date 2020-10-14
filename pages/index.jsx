@@ -9,20 +9,17 @@ export default function Home() {
         <title>PizzaRia :)</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <h1 className={styles.title}>
+        PizzaRia, a sua <span>pizza perfeita</span> e com um sorriso 😁
+      </h1>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          PizzaRia, a sua <span>pizza perfeita</span> e com um sorriso 😁
-        </h1>
-
-        <div className={styles.grid}>
-          <div className={styles.card}>
-            <Link href="/pizza/pasta">
-              <h3>Criar sua pizza</h3>
-            </Link>
-          </div>
+      <div className={styles.grid}>
+        <div className={styles.card}>
+          <Link href="/pizza/pasta">
+            <h3>Criar sua pizza</h3>
+          </Link>
         </div>
-      </main>
+      </div>
 
       <footer className={styles.footer}>Powered by Luiz</footer>
     </div>

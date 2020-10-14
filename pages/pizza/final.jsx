@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-import styles from "../../styles/Pasta.module.css";
+import styles from "../../styles/Final.module.css";
 
 import { useEffect } from "react";
 
