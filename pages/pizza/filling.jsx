@@ -1,32 +1,35 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import axios from "axios";
 
 import styles from "../../styles/Pasta.module.css";
 
-const Pasta = (props) => {
+import { useEffect } from "react";
+
+const Filling = (props) => {
   const router = useRouter();
-  function handleSelectPasta() {
-    router.push("/pizza/size");
+
+  function handleSelectFilling() {
+    router.push("/pizza/final");
   }
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>PizzaRia :) - Escolha sua massa</title>
+        <title>PizzaRia :) - Escolha o recheio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Escolha sua massa 😁</h1>
+        <h1 className={styles.title}>Escolha o recheio 😁</h1>
         <div className={styles.cardsContainer}>
-          {props.pasta.map((item, key) => (
+          {props.filling.map((item, key) => (
             <div
               className={styles.card}
               key={key}
               onClick={() => {
-                handleSelectPasta(item.name);
+                handleSelectFilling(item.name);
               }}
             >
               <h2>{item.name}</h2>
@@ -42,11 +45,11 @@ const Pasta = (props) => {
   );
 };
 
-Pasta.getInitialProps = async function () {
-  const res = await axios.get("api/getPastas");
+Filling.getInitialProps = async function () {
+  const res = await axios.get("/api/getFilling");
   return {
-    pasta: res.data,
+    filling: res.data,
   };
 };
 
-export default Pasta;
+export default Filling;

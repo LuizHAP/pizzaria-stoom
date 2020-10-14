@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import axios from "axios";
 
 import styles from "../../styles/Pasta.module.css";
@@ -7,6 +8,12 @@ import styles from "../../styles/Pasta.module.css";
 import { useEffect } from "react";
 
 const Size = (props) => {
+  const router = useRouter();
+
+  function handleSelectSize() {
+    router.push("/pizza/filling");
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,7 +25,13 @@ const Size = (props) => {
         <h1 className={styles.title}>Escolha o tamanho 😁</h1>
         <div className={styles.cardsContainer}>
           {props.size.map((item, key) => (
-            <div className={styles.card} key={key}>
+            <div
+              className={styles.card}
+              key={key}
+              onClick={() => {
+                handleSelectSize(item.name);
+              }}
+            >
               <h2>{item.name}</h2>
               <h3>{item.description}</h3>
               <img src={item.imagem} />
@@ -33,7 +46,7 @@ const Size = (props) => {
 };
 
 Size.getInitialProps = async function () {
-  const res = await axios.get("api/getSize");
+  const res = await axios.get("/api/getSize");
   return {
     size: res.data,
   };
