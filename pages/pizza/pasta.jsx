@@ -2,13 +2,11 @@ import Link from "next/link";
 import Head from "next/head";
 import axios from "axios";
 
-import styles from "../../styles/Home.module.css";
-import { useEffect } from "react";
+import styles from "../../styles/Pasta.module.css";
 
 const Pasta = (props) => {
-  useEffect(() => {
-    console.warn(props.pasta);
-  }, []);
+  function handleSelectPizza() {}
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,13 +16,21 @@ const Pasta = (props) => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Escolha sua massa 😁</h1>
-        {props.pasta.map((item, key) => (
-          <div className={styles.card} key={key}>
-            <h2>{item.name}</h2>
-            <h3>{item.description}</h3>
-            <img src={item.imagem} />
-          </div>
-        ))}
+        <div className={styles.cardsContainer}>
+          {props.pasta.map((item, key) => (
+            <div
+              className={styles.card}
+              key={key}
+              onClick={() => {
+                handleSelectPizza(item.name);
+              }}
+            >
+              <h2>{item.name}</h2>
+              <h3>{item.description}</h3>
+              <img src={item.imagem} />
+            </div>
+          ))}
+        </div>
       </main>
 
       <footer className={styles.footer}>Powered by Luiz</footer>
