@@ -10,6 +10,11 @@ export const PizzaProvider = ({ children }) => {
     localStorage.setItem("@pizzaria_stoom", JSON.stringify(pizza));
   };
 
+  const setBorder = (border) => {
+    Object.assign(pizza, { border });
+    localStorage.setItem("@pizzaria_stoom", JSON.stringify(pizza));
+  };
+
   const setSize = (size) => {
     Object.assign(pizza, { size });
 
@@ -35,6 +40,7 @@ export const PizzaProvider = ({ children }) => {
         setPasta,
         setSize,
         setFilling,
+        setBorder,
         pizza,
       }}
     >

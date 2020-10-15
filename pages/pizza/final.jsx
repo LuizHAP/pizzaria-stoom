@@ -31,6 +31,7 @@ const FinalStep = (props) => {
           <span><strong>Massa:</strong> {pizza.pasta}</span>
           <span><strong>Tamanho:</strong> {pizza.size}</span>
           <span><strong>Recheio:</strong> {pizza.filling}</span>
+          <span><strong>Borda:</strong> {pizza.border}</span>
         </div>
         <p>
           Você ganhou um total de <span>{points}</span> pontos!

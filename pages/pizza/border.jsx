@@ -8,26 +8,26 @@ import { toast } from "react-toastify";
 import { usePizza } from "../../hooks/pizza";
 import { usePoints } from "../../hooks/points";
 
-import styles from "../../styles/Filling.module.css";
+import styles from "../../styles/Border.module.css";
 
-const Filling = (props) => {
+const Border = (props) => {
   const router = useRouter();
 
-  const { setFilling } = usePizza();
+  const { setBorder } = usePizza();
   const { setPoints, points } = usePoints();
 
-  const handleSelectFilling = useCallback(
-    (fillingName, recommended) => {
+  const handleSelectBorder = useCallback(
+    (borderName, recommended) => {
       if (recommended) {
         setPoints(points + 10);
         toast.success("Você selecionou uma opção recomendada");
       } else {
         setPoints(points + 2);
       }
-      setFilling(fillingName);
-      router.push("/pizza/border");
+      setBorder(borderName);
+      router.push("/pizza/final");
     },
-    [router.push, setFilling]
+    [router.push, setBorder]
   );
   return (
     <div className={styles.container}>
@@ -38,15 +38,15 @@ const Filling = (props) => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Escolha o <span>recheio</span> 😁
+          Escolha a <span>borda</span> 😁
         </h1>
         <div className={styles.cardsContainer}>
-          {props.filling.map((item, key) => (
+          {props.border.map((item, key) => (
             <div
               className={styles.card}
               key={key}
               onClick={() => {
-                handleSelectFilling(item.name, item.recommended);
+                handleSelectBorder(item.name, item.recommended);
               }}
             >
               <h2>
@@ -62,11 +62,11 @@ const Filling = (props) => {
   );
 };
 
-Filling.getInitialProps = async function () {
-  const res = await axios.get("/api/getFilling");
+Border.getInitialProps = async function () {
+  const res = await axios.get("/api/getBorder");
   return {
-    filling: res.data,
+    border: res.data,
   };
 };
 
-export default Filling;
+export default Border;
