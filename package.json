@@ -2,6 +2,7 @@
   "name": "pizzaria_stoom",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pizzaria-stoom-luiz.vercel.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
