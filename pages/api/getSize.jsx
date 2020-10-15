@@ -15,7 +15,7 @@ const sizes = [
     description: "Pizza de tamanho gigante com 9 fatias.",
   },
   {
-    name: "Pizza Médio",
+    name: "Pizza Média",
     recommended: false,
     imagem:
       "https://4.bp.blogspot.com/-nBhegm0zCVs/TyWPJuLN1nI/AAAAAAAAAcU/2esy6vXIpTg/s1600/pizza3.jpg",
