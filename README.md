@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://github.com/vsamarcus/proffy/blob/master/.github/logo.png?raw=true" alt="Proffy" width="280"/>
+   <img src="https://github.com/LuizHAP/pizzaria-stoom/blob/master/assets/PizzaRia.png" alt="PizzaRia" width="280"/>
 </p>
 
 > :rocket: Project made to create your own Pizza!
