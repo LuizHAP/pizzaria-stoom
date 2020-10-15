@@ -1,15 +1,14 @@
 import { useCallback } from "react";
-
 import { useRouter } from "next/router";
 import Head from "next/head";
 
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import { usePizza } from "../../hooks/pizza";
 import { usePoints } from "../../hooks/points";
 
 import styles from "../../styles/Pasta.module.css";
-import { toast } from "react-toastify";
 
 const Pasta = (props) => {
   const router = useRouter();

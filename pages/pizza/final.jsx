@@ -1,12 +1,9 @@
-import Link from "next/link";
 import Head from "next/head";
 import { usePizza } from "../../hooks/pizza";
 import { usePoints } from "../../hooks/points";
 import { useRouter } from "next/router";
 
 import styles from "../../styles/Final.module.css";
-import { useMemo, useState } from "react";
-import axios from "axios";
 
 const FinalStep = (props) => {
   const router = useRouter();
