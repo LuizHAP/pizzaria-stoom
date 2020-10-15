@@ -26,13 +26,17 @@ const FinalStep = (props) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Sua pizza está pronta! 😁</h1>
+        <h1 className={styles.title}>
+          Sua <span>pizza</span> está <span>pronta</span>! 😁
+        </h1>
         <div className={styles.pizzaContainer}>
           <span>Massa: {pizza.pasta}</span>
           <span>Tamanho: {pizza.size}</span>
           <span>Recheio: {pizza.filling}</span>
         </div>
-        <Link href="/">Recomeçar</Link>
+        <Link href="/">
+          <button className={styles.button}>Recomeçar</button>
+        </Link>
       </main>
 
       <footer className={styles.footer}>Powered by Luiz</footer>

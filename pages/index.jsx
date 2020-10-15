@@ -14,9 +14,18 @@ export default function Home() {
         <span>sorriso</span> 😁
       </h1>
 
+      <p className={styles.description}>
+        Aqui na PizzaRia, você pode escolher entre a pizza recomendada pelo{" "}
+        <span>chefe Giorgi Monte Arouca</span>, e receber <span>pontos</span> ou
+        criar a sua própria pizza!
+      </p>
+
       <div className={styles.grid}>
         <Link href="/pizza/pasta">
-          <button className={styles.button}>Criar sua pizza</button>
+          <button className={styles.button}>Pizza personalizada</button>
+        </Link>
+        <Link href="/pizza/pasta">
+          <button className={styles.button}>Pizza recomendada</button>
         </Link>
       </div>
     </div>
