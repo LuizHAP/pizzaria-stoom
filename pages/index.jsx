@@ -9,6 +9,7 @@ export default function Home() {
         <title>PizzaRia :)</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
       <h1 className={styles.title}>
         <span>PizzaRia</span>, a sua pizza perfeita e com um{" "}
         <span>sorriso</span> 😁
@@ -22,10 +23,7 @@ export default function Home() {
 
       <div className={styles.grid}>
         <Link href="/pizza/pasta">
-          <button className={styles.button}>Pizza personalizada</button>
-        </Link>
-        <Link href="/pizza/pasta">
-          <button className={styles.button}>Pizza recomendada</button>
+          <button className={styles.button}>Criar sua pizza</button>
         </Link>
       </div>
     </div>

@@ -8,6 +8,7 @@ import axios from "axios";
 import { usePizza } from "../../hooks/pizza";
 
 import styles from "../../styles/Pasta.module.css";
+import { toast } from "react-toastify";
 
 const Pasta = (props) => {
   const router = useRouter();
@@ -28,7 +29,9 @@ const Pasta = (props) => {
         <title>PizzaRia :)</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1 className={styles.title}>Escolha sua <span>massa</span> 😁</h1>
+      <h1 className={styles.title}>
+        Escolha sua <span>massa</span> 😁
+      </h1>
       <div className={styles.cardsContainer}>
         {props.pasta.map((item, key) => (
           <div
