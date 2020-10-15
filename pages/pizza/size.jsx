@@ -6,6 +6,7 @@ import Head from "next/head";
 import axios from "axios";
 
 import { usePizza } from "../../hooks/pizza";
+import { usePoints } from "../../hooks/points";
 
 import styles from "../../styles/Size.module.css";
 import { toast } from "react-toastify";
@@ -14,11 +15,15 @@ const Size = (props) => {
   const router = useRouter();
 
   const { setSize } = usePizza();
+  const { setPoints, points } = usePoints();
 
   const handleSelectSize = useCallback(
     (sizeName, recommended) => {
       if (recommended) {
+        setPoints(points + 10);
         toast.success("Você selecionou uma opção recomendada");
+      } else {
+        setPoints(points + 2);
       }
       setSize(sizeName);
       router.push("/pizza/filling");

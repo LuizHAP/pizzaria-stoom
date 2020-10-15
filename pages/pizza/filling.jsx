@@ -6,6 +6,7 @@ import Head from "next/head";
 import axios from "axios";
 
 import { usePizza } from "../../hooks/pizza";
+import { usePoints } from "../../hooks/points";
 
 import styles from "../../styles/Filling.module.css";
 import { toast } from "react-toastify";
@@ -14,11 +15,15 @@ const Filling = (props) => {
   const router = useRouter();
 
   const { setFilling } = usePizza();
+  const { setPoints, points } = usePoints();
 
   const handleSelectFilling = useCallback(
     (fillingName, recommended) => {
       if (recommended) {
+        setPoints(points + 10);
         toast.success("Você selecionou uma opção recomendada");
+      } else {
+        setPoints(points + 2);
       }
       setFilling(fillingName);
       router.push("/pizza/final");

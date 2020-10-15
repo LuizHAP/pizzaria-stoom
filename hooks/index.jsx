@@ -1,8 +1,13 @@
-import React from 'react';
-import { PizzaProvider } from './pizza';
+import React from "react";
+import { PizzaProvider } from "./pizza";
+import { PointsProvider } from "./points";
 
 const Provider = ({ children }) => {
-  return <PizzaProvider>{children}</PizzaProvider>;
+  return (
+    <PointsProvider>
+      <PizzaProvider>{children}</PizzaProvider>
+    </PointsProvider>
+  );
 };
 
 export default Provider;
