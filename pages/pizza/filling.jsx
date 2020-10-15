@@ -8,6 +8,7 @@ import axios from "axios";
 import { usePizza } from "../../hooks/pizza";
 
 import styles from "../../styles/Filling.module.css";
+import { toast } from "react-toastify";
 
 const Filling = (props) => {
   const router = useRouter();
@@ -15,7 +16,10 @@ const Filling = (props) => {
   const { setFilling } = usePizza();
 
   const handleSelectFilling = useCallback(
-    (fillingName) => {
+    (fillingName, recommended) => {
+      if (recommended) {
+        toast.success("Você selecionou uma opção recomendada");
+      }
       setFilling(fillingName);
       router.push("/pizza/final");
     },
@@ -29,17 +33,21 @@ const Filling = (props) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Escolha o <span>recheio</span> 😁</h1>
+        <h1 className={styles.title}>
+          Escolha o <span>recheio</span> 😁
+        </h1>
         <div className={styles.cardsContainer}>
           {props.filling.map((item, key) => (
             <div
               className={styles.card}
               key={key}
               onClick={() => {
-                handleSelectFilling(item.name);
+                handleSelectFilling(item.name, item.recommended);
               }}
             >
-              <h2>{item.name}</h2>
+              <h2>
+                {item.name} {item.recommended && <span>⭐</span>}
+              </h2>
               <p>{item.description}</p>
               <img src={item.imagem} />
             </div>

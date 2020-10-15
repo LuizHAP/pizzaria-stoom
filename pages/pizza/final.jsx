@@ -7,16 +7,7 @@ import { useMemo, useState } from "react";
 import axios from "axios";
 
 const FinalStep = (props) => {
-  const [recommended, setRecommended] = useState({
-    recommended: "",
-  });
-
   const { pizza } = usePizza();
-
-  const earnPoints = useMemo(() => recommended.recomendado === pizza.recheio, [
-    pizza.recheio,
-    recommended.recomendado,
-  ]);
 
   return (
     <div className={styles.container}>
@@ -42,13 +33,6 @@ const FinalStep = (props) => {
       <footer className={styles.footer}>Powered by Luiz</footer>
     </div>
   );
-};
-
-FinalStep.getInitialProps = async function () {
-  const res = await axios.get("/api/getRecommended");
-  return {
-    recommended: res.data,
-  };
 };
 
 export default FinalStep;

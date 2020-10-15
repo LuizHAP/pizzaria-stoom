@@ -8,6 +8,7 @@ import axios from "axios";
 import { usePizza } from "../../hooks/pizza";
 
 import styles from "../../styles/Size.module.css";
+import { toast } from "react-toastify";
 
 const Size = (props) => {
   const router = useRouter();
@@ -15,7 +16,10 @@ const Size = (props) => {
   const { setSize } = usePizza();
 
   const handleSelectSize = useCallback(
-    (sizeName) => {
+    (sizeName, recommended) => {
+      if (recommended) {
+        toast.success("Você selecionou uma opção recomendada");
+      }
       setSize(sizeName);
       router.push("/pizza/filling");
     },
@@ -30,17 +34,21 @@ const Size = (props) => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Escolha o <span>tamanho</span> 😁</h1>
+        <h1 className={styles.title}>
+          Escolha o <span>tamanho</span> 😁
+        </h1>
         <div className={styles.cardsContainer}>
           {props.size.map((item, key) => (
             <div
               className={styles.card}
               key={key}
               onClick={() => {
-                handleSelectSize(item.name);
+                handleSelectSize(item.name, item.recommended);
               }}
             >
-              <h2>{item.name}</h2>
+              <h2>
+                {item.name} {item.recommended && <span>⭐</span>}
+              </h2>
               <h3>{item.description}</h3>
               <img src={item.imagem} />
             </div>

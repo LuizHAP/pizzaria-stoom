@@ -50,6 +50,10 @@
   margin-top: 5rem;
 }
 
+.cardsContainer {
+  text-align: center;
+}
+
 .card {
   margin: 1rem;
   flex-basis: 45%;

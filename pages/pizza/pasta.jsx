@@ -16,7 +16,10 @@ const Pasta = (props) => {
   const { setPasta } = usePizza();
 
   const handleSelectPasta = useCallback(
-    (pastaName) => {
+    (pastaName, recommended) => {
+      if (recommended) {
+        toast.success("Você selecionou uma opção recomendada");
+      }
       setPasta(pastaName);
       router.push("/pizza/size");
     },
@@ -38,10 +41,12 @@ const Pasta = (props) => {
             className={styles.card}
             key={key}
             onClick={() => {
-              handleSelectPasta(item.name);
+              handleSelectPasta(item.name, item.recommended);
             }}
           >
-            <h2>{item.name}</h2>
+            <h2>
+              {item.name} {item.recommended && <span>⭐</span>}
+            </h2>
             <p>{item.description}</p>
             <img src={item.imagem} />
           </div>

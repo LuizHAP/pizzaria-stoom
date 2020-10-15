@@ -1,6 +1,7 @@
 const pastas = [
   {
     name: "Massa Napolitana",
+    recommended: false,
     imagem:
       "https://bellamais.correiodopovo.com.br/image/policy:1.350375:1562690689/Pizza-Cinque-358.jpeg?f=2x1&$p$f=53970fa&w=720&$w=3b33d2d",
     description:
@@ -8,6 +9,7 @@ const pastas = [
   },
   {
     name: "Massa Siciliana",
+    recommended: true,
     imagem:
       "https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2012/07/Pizza_sicilianooo.jpg",
     description:
@@ -15,6 +17,7 @@ const pastas = [
   },
   {
     name: "Massa Nova Iorquina",
+    recommended: false,
     imagem:
       "https://www.comidaereceitas.com.br/img/sizeswp/1200x675/2012/07/Pizza_sicilianooo.jpg",
     description:
