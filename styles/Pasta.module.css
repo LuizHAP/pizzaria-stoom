@@ -50,10 +50,6 @@
   margin-top: 5rem;
 }
 
-.cardsContainer {
-  text-align: center;
-}
-
 .card {
   margin: 1rem;
   flex-basis: 45%;
@@ -84,7 +80,7 @@
 }
 
 .card img {
-  max-width: 70%;
+  max-width: 100%;
 }
 
 @media (min-width: 450px) {
